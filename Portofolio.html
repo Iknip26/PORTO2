@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="dist/output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @keyframes word-enter {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .word-animation {
+        display: inline-block;
+        animation: word-enter 0.5s ease-in-out forwards;
+        animation-delay: calc(0.1s * var(--word-index));
+      }
+
+      @keyframes wave {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        25% {
+          transform: rotate(20deg);
+        }
+
+        50% {
+          transform: rotate(0deg);
+        }
+
+        55% {
+          transform: rotate(0deg);
+        }
+
+        75% {
+          transform: rotate(-20deg);
+        }
+
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+
+      .animate-wave {
+        display: inline-block;
+        animation: wave 0.5s ease-in-out infinite;
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out, display 0.3s ease-in-out;
+      }
+
+      /*
+        #sayHiButton:hover .animate-wave {
+            display: inline-block;
+            opacity: 1;
+        } */
+
+      #container_list_skill {
+        white-space: nowrap;
+      }
+
+      #menu_list_skill {
+        display: inline-block;
+        animation: marquee 15s linear infinite;
+        padding-left: 100%;
+      }
+
+      #menu_list_skill li {
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin-right: 20px;
+      }
+
+      #menu_list_skill.animate-marquee-reverse {
+        animation-direction: reverse;
+      }
+
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      #detail_container {
+        background-color: rgba(255, 255, 255, 0.881);
+      }
+    </style>
+  </head>
+
+  <body id="body" class="h-screen p-0 m-0 overflow-hidden">
+    <div
+      class="nav-bar fixed top-0 flex flex-row py-10 items-center w-full h-fit justify-center z-10"
+    >
+      <ul
+        class="tab-menu flex flex-row space-x-8 bg-white py-3 px-8 rounded-full shadow-md shadow-gray-700"
+      >
+        <li class="tab-btn">
+          <button
+            id="btn-nav-1"
+            onclick="setSection('Home')"
+            class="py-1 px-1 border-b-2 border-text_color_dark transition-all duration-500 ease-in-out"
+          >
+            Home
+          </button>
+        </li>
+        <li class="tab-btn">
+          <button
+            id="btn-nav-2"
+            onclick="setSection('About')"
+            class="py-1 px-1 border-b-2 border-transparent transition-all duration-500 ease-in-out"
+          >
+            About
+          </button>
+        </li>
+        <li class="tab-btn">
+          <button
+            id="btn-nav-3"
+            onclick="setSection('Project')"
+            class="py-1 px-1 border-b-2 border-transparent transition-all duration-500 ease-in-out"
+          >
+            Skils
+          </button>
+        </li>
+        <li class="tab-btn">
+          <button
+            id="btn-nav-4"
+            onclick="setSection('Skils')"
+            class="py-1 px-1 border-b-2 border-transparent transition-all duration-500 ease-in-out"
+          >
+            Projects
+          </button>
+        </li>
+        <li class="tab-btn">
+          <button
+            id="btn-nav-5"
+            onclick="setSection('Contact')"
+            class="py-1 px-1 border-b-2 border-transparent transition-all duration-500 ease-in-out"
+          >
+            Contact
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div
+      id="main-container"
+      class="main-container flex flex-row h-full w-[500vw] overflow-hidden transition-all duration-500 ease-in-out"
+    >
+      <div
+        class="bg-gradient-to-r bg-fifth_color w-full h-full flex flex-row justify-center items-center text-5xl"
+        style="background-color: #d04848"
+      >
+        <div
+          class="bg-white w-[300px] h-[300px] rounded-full flex flex-row justify-center shadow-inner shadow-slate-800 overflow-hidden"
+        >
+          <img
+            class="w-[220px] h-[400px] mt-4"
+            class=""
+            src="hanif2.png"
+            alt=""
+          />
+        </div>
+        <div class="flex flex-col w-[50rem] ps-12 py-10">
+          <p class="text-6xl font-semibold text-white tracking-wider mb-4">
+            Software Engineer
+          </p>
+          <p
+            id="about-me"
+            class="text-3xl font-semibold text-white tracking-wider"
+            style="line-height: 1.2"
+          >
+            Hello!, i am Hanif, i am a front-end and game developer with 2 years
+            of experience. I like to build some nice webdesign, and also an
+            enjoyable and fun games.
+          </p>
+          <div class="flex flex-row mt-10 ms-[-35px]">
+            <a
+              href="mailto:your-ikhnif26@gmail.com?subject=Hello&body=Hi Hanif!"
+              id="sayHiButton"
+              class="flex flex-row ms-8 items-center px-6 py-2 text-text_color_dark font-semibold bg-white rounded-full text-sm"
+            >
+              Say Hi !
+              <img id="hand" class="w-6 h-6 ms-4" src="Hand.png" alt="" />
+            </a>
+
+            <button
+              id="downloadButton"
+              class="flex flex-row ms-8 items-center px-6 py-2 text-text_color_dark font-semibold bg-white rounded-full text-sm hover:scale-110 transition-transform duration-300"
+            >
+              Download CV
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="bg-[#5F5D9C] w-full h-full flex flex-col justify-center items-center text-5xl"
+      >
+        <div class="w-full px-40 flex flex-col items-center justify-center">
+          <p class="text-5xl font-semibold text-white tracking-wider mb-4">
+            About Me
+          </p>
+          <p
+            id="about-me"
+            class="text-2xl text-white tracking-wider text-center"
+            style="line-height: 1.2"
+          >
+            Hello!, i am Hanif. Im a student at Gadjah Mada University, Majoring
+            in Software Engineering. My role in a project usually as a
+            front-end, but im also capable to do back-end. <br /><br />As a
+            Software Engineer, of course i love programming. i like to make and
+            try new thing about website designing. Besides that, i also like to
+            design and develop a game. i have some experience in developing a
+            game. Now im still learning and want to expertise in is React,
+            Next.js, Node.js, Laravel, MySQL and Unity. I am currently looking
+            for an internship position as a software or game developer.
+            <br /><br />Ohh, outside of programming, I really like making
+            graphic designs, for example pictures or 3D models. And also I'm
+            pretty good at playing Rubik's cubes
+          </p>
+        </div>
+      </div>
+      <div
+        class="bg-[#6dc5d1] w-full h-full flex flex-col justify-center items-center text-5xl"
+      >
+        <div class="w-full px-40 flex flex-col items-center justify-center">
+          <p class="text-5xl font-semibold text-white tracking-wider mb-4">
+            Here are some of my skills
+          </p>
+          <div
+            id="container_list_skill"
+            class="flex flex-col w-fit py-8 overflow-hidden"
+          >
+            <ul
+              id="menu_list_skill"
+              class="flex w-fit flex-wrap space-x-4 items-center justify-center"
+            >
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/768px-HTML5_Badge.svg.png?20110131171049"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/768px-CSS3_logo.svg.png?20210705212817"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  class="w-20 h-auto"
+                  src="https://i.pinimg.com/564x/13/40/7c/13407c12f50f08d328800c3caef43f61.jpg"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/2560px-PHP-logo.svg.png"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/320px-Tailwind_CSS_Logo.svg.png"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png"
+                  alt=""
+                />
+              </li>
+            </ul>
+
+            <ul
+              id="menu_list_skill"
+              class="flex w-fit flex-wrap mt-10 space-x-4 items-center justify-center animate-marquee-reverse"
+            >
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  src="https://www.svgrepo.com/show/303251/mysql-logo.svg"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  class="w-8 ms-[6px] mt-[-5px]"
+                  src="https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/1200px-Java_programming_language_logo.svg.png"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPVLNH8JtS214pS22PmEs1OUvcEeoOZJX3tw&s"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Logo_C_sharp.svg/1200px-Logo_C_sharp.svg.png"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1200px-Kotlin_Icon.png"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Android_Studio_Icon_3.6.svg/1900px-Android_Studio_Icon_3.6.svg.png"
+                  alt=""
+                />
+              </li>
+            </ul>
+
+            <ul
+              id="menu_list_skill"
+              class="flex w-fit flex-wrap space-x-4 items-center justify-center mt-10"
+            >
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300"
+              >
+                <img src="https://i.redd.it/tu3gt6ysfxq71.png" alt="" />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Blender_logo_no_text.svg/939px-Blender_logo_no_text.svg.png"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  class="w-8 h-auto ms-2"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Adobe_Illustrator_CC_icon.svg/788px-Adobe_Illustrator_CC_icon.svg.png"
+                  alt=""
+                />
+              </li>
+              <li
+                class="bg-white w-20 h-20 p-4 rounded-xl shadow-md shadow-slate-800 hover:scale-105 transition-transform duration-300 flex flex-row items-center justify-center"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Calligrakrita-base.svg/1200px-Calligrakrita-base.svg.png"
+                  alt=""
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-[#4CCD99] w-full h-full flex flex-col justify-center items-center text-5xl"
+      >
+        <div class="px-20 w-full flex flex-row items-center justify-center">
+          <button id="btn_prev" onclick="prevProject()" class="">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="90"
+              height="90"
+              viewBox="0 0 90 90"
+              fill="none"
+            >
+              <rect width="90" height="90" fill="url(#pattern0_17_5)" />
+              <defs>
+                <pattern
+                  id="pattern0_17_5"
+                  patternContentUnits="objectBoundingBox"
+                  width="1"
+                  height="1"
+                >
+                  <use xlink:href="#image0_17_5" transform="scale(0.0111111)" />
+                </pattern>
+                <image
+                  id="image0_17_5"
+                  width="90"
+                  height="90"
+                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNklEQVR4nO3asWoCQRhF4dXCVfC9TRGCrY0PYSG+kVUgJIGUJwzYpUg3v3vnfHWKn8NlYzHTJEmSJEmSpEUBZuAVeAe+gROwq74rMfKVv07Vt40Qufmsvm+EyM1H9Y0jRG7equ8cIfK1/V31rYsFbIDLP5FvwLb61sXCyEaOgEs2cgRcspEj4JKNHAGXbOQIuGQjR8AlGzkCLtnIEXDJRo6ASzZyBFyykSPgkrtEnn3c0if0iy+I+oS++4LI0DmAg5+OPqFn/xl2gj/v+sHYxo6EyzZ2JFy2sSPhso0dCZdt7Ei4bGNHwmUbOxIu29iRcNnGjoTLNnYkXLaxI+Gy+/GRzvPFPva8aeTYX8Cq+s4RYv8A6+obR4h9rr4tNfbx8bloSz4D++q7YgErv8uSJEmSJE3JfgFhVy9RbsoXswAAAABJRU5ErkJggg=="
+                />
+              </defs>
+            </svg>
+          </button>
+
+          <div
+            class="w-[70%] flex flex-row items-center justify-center overflow-hidden mt-16"
+          >
+            <ul
+              id="container_project"
+              class="flex w-fit space-x-16 py-4 px-4 items-center justify-center transition-all duration-300 translate-x-[10rem]"
+            >
+              <li
+                id="porto_1"
+                class="w-60 h-[65vh] rounded-t-3xl relative hover:scale-105 transition-all duration-300 overflow-hidden"
+              >
+                <button
+                  class="h-[90%] w-full"
+                  onclick="openModal(0)"
+                  class="overflow-hidden"
+                >
+                  <img
+                    class="w-full h-full rounded-t-3xl object-cover"
+                    src="SI_PORTO_TA.jpeg"
+                    alt=""
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-b from-transparent to-[#4CCD99] opacity-90"
+                  ></div>
+                </button>
+              </li>
+
+              <li
+                id="porto_2"
+                class="w-60 h-[65vh] rounded-t-3xl relative hover:scale-105 transition-all duration-300"
+              >
+                <button class="h-[90%] w-full" onclick="openModal(1)">
+                  <img
+                    class="w-full h-full rounded-t-3xl object-cover"
+                    src="SI_TA.jpeg"
+                    alt=""
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-b from-transparent to-[#4CCD99] opacity-90"
+                  ></div>
+                </button>
+              </li>
+              <li
+                id="porto_3"
+                class="w-60 h-[65vh] rounded-t-3xl relative hover:scale-105 transition-all duration-300"
+              >
+                <button class="h-[90%] w-full" onclick="openModal(2)">
+                  <img
+                    class="w-full h-full rounded-t-3xl object-cover"
+                    src="PKM.png"
+                    alt=""
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-b from-transparent to-[#4CCD99] opacity-90"
+                  ></div>
+                </button>
+              </li>
+              <li
+                id="porto_4"
+                class="w-60 h-[65vh] rounded-t-3xl relative hover:scale-105 transition-all duration-300"
+              >
+                <button class="h-[90%] w-full" onclick="openModal(3)">
+                  <img
+                    class="w-full h-full rounded-t-3xl object-cover"
+                    src="GEMASTIK.png"
+                    alt=""
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-b from-transparent to-[#4CCD99] opacity-90"
+                  ></div>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <button id="btn_next" onclick="nextProject()" class="">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="90"
+              height="90"
+              viewBox="0 0 90 90"
+              fill="none"
+            >
+              <rect width="90" height="90" fill="url(#pattern0_17_3)" />
+              <defs>
+                <pattern
+                  id="pattern0_17_3"
+                  patternContentUnits="objectBoundingBox"
+                  width="1"
+                  height="1"
+                >
+                  <use xlink:href="#image0_17_3" transform="scale(0.0111111)" />
+                </pattern>
+                <image
+                  id="image0_17_3"
+                  width="90"
+                  height="90"
+                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAABRElEQVR4nO3cvWoCQQBF4TWFa8DnNpAmRapUeYcU4gsJgl1+sDwSslVIFGRmVu+e7wHCcLgMEZbpOkmSJEmSJF0EuAdegE9gDzwCvTkL4yfyb2tjl408Az7+CG3s0oD3f0Ibu3DopxOhjV0wdD/cycauDZgDb2dib4BF9cOkw9jGjoTLNnYkXLaxI+GyjR0Jl23sSLhsY0fCZRs7Ei7b2JFw2caOhMs2diRctrEj4bLb8SOd64v90PJMU75GdmOfcSqht2OfcSpXx2rsc940/GK1Pv+9a8DIRs6AvwaNHAGXbOQIuGQjR8AlGzkCLtnIEXDJRo6ASzZyBFyykSPgko0cAZds5Ai45CaRe59jaxP6+cxnWr5TWiDyHfBl5DahDy65AeDV66JN6OUQ+zA8cfz9KKwPdVcMPqv2xyVJkiRJUjdhR5HyL0XbIoIeAAAAAElFTkSuQmCC"
+                />
+              </defs>
+            </svg>
+          </button>
+        </div>
+        <p
+          class="text-white font-bold text-[10vw] mt-[-8vw] text-shadow-lg z-30 px-16"
+        >
+          MY PORTO
+        </p>
+
+        <div
+          id="detail_container"
+          class="absolute w-[60vw] h-[60%] top-50 left-50 z-30 shadow-xl shadow-slate-800 bg-black/50 scale-0 transition-all duration-300"
+        >
+          <div class="absolute top-0 right-0 me-4 mt-4 z-40">
+            <button
+              type="button"
+              class="bg-text_color_dark p-2 rounded-full"
+              onclick="closeModal()"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="30"
+                height="30"
+                viewBox="0 0 90 90"
+                fill="none"
+              >
+                <rect width="90" height="90" fill="url(#pattern0_18_6)" />
+                <defs>
+                  <pattern
+                    id="pattern0_18_6"
+                    patternContentUnits="objectBoundingBox"
+                    width="1"
+                    height="1"
+                  >
+                    <use
+                      xlink:href="#image0_18_6"
+                      transform="scale(0.0111111)"
+                    />
+                  </pattern>
+                  <image
+                    id="image0_18_6"
+                    width="90"
+                    height="90"
+                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB40lEQVR4nO2cS2rDQBBEtYpz8ijnyWLQhfK5RRmBDAaHENszPVXd9UDglal+SK0RGvWyGGOMMcYYY4wxxpgbAJwAvAP4Po7990lFFRTyA3gB8IFbNgCvCzkS+f8IyRdWNf8/QvKEVc1/R0hK2RL5HwhJJVsi/3F3bnicNvNuLpP/WPY8S5shu4PkC2tE2H2N2YMtso080S5+40dJdJjszpJ3PpeA0Cv60ka2kY7t4pq3UXlHB28jZCtljboUu7cRhYzyhYA4W5qCQJipC0yFgSjLEBgKBEGGEGYWiiqSZxaMapJnFI6qkiMFoLrkCBGw5LBH4DbgP7neeN/LoLOvdrsQlL2lkUwse0snmVB2XslEsvNLJpBdR/JE2fUkT5BdV3KgbEsOkG3J11h0AHDrSCH5Qt0WAi/vUkqud2bDj+AlJOc/s8EjOa9s8EnOJ5tYch7ZfjkbgLcbBOANNAF4S1gA3uQYgLftBsCwFw4EGYbCVCCIsnSFsTAQZnoK5oJAnC1dIRDImOazXwhlHTWvQ/2je6l5HcpjJKTmdWzCg1Fk5nU08VE/EvM6modXZRpnliW/xIC+LPklRk5myS8xRDVLfomxwFnyH6uRfen3dRyr0me/EM9vjDHGGGOMMcYYswRyBpias+umnbidAAAAAElFTkSuQmCC"
+                  />
+                </defs>
+              </svg>
+            </button>
+          </div>
+
+          <div
+            id="modal_porto_1"
+            class="w-full h-full p-8 flex-row scale-0 hidden"
+          >
+            <div
+              class="w-80 h-full shadwow-md shadow-slate-800 p-6 rounded-3xl"
+              id="img_container_project"
+            >
+              <img
+                class="w-full h-full object-cover object-top rounded-3xl"
+                src="SI_PORTO_TA.jpeg"
+                alt=""
+              />
+            </div>
+            <div class="flex flex-col w-[35vw]">
+              <p class="text-4xl font-semibold mt-10">
+                SISTEM INFORMASI PORTOFOLIO TA
+              </p>
+              <p class="text-xl font-regular mt-10">
+                A website information system that can be used to view portfolio
+                documentation from students. In addition, there is also an admin
+                page that will be used to manage content on the website.
+              </p>
+              <div class="flex flex-row mt-12 space-x-6">
+                <div
+                  class="py-2 px-4 bg-white shadow-md shadow-slate-500 text-xl rounded-full font-semibold"
+                >
+                  Laravel
+                </div>
+                <div
+                  class="py-2 px-4 bg-white shadow-md shadow-slate-500 text-xl rounded-full font-semibold"
+                >
+                  MySQL
+                </div>
+                <div
+                  class="py-2 px-4 bg-white shadow-md shadow-slate-500 text-xl rounded-full font-semibold"
+                >
+                  Tailwind
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="modal_porto_2"
+            class="w-full h-full p-8 scale-0 hidden flex-row"
+          >
+            <div
+              class="w-80 h-full shadwow-md shadow-slate-800 p-6 rounded-3xl"
+              id="img_container_project"
+            >
+              <img
+                class="w-full h-full object-cover object-top rounded-3xl"
+                src="SI_TA.jpeg"
+                alt=""
+              />
+            </div>
+            <div class="flex flex-col w-[35vw]">
+              <p class="text-4xl font-semibold mt-10">
+                SISTEM INFORMASI MANAGEMENT TA
+              </p>
+              <p class="text-lg font-regular mt-10">
+                A website information system that can be used by the academic
+                community to manage and monitor final projects. As a student, we
+                can submit and take final projects. As a lecturer, we can add
+                student guidance logs, make announcements, and much more.
+              </p>
+              <div class="flex flex-row mt-12 space-x-6">
+                <div
+                  class="py-2 px-4 bg-white shadow-md shadow-slate-500 text-xl rounded-full font-semibold"
+                >
+                  Laravel
+                </div>
+                <div
+                  class="py-2 px-4 bg-white shadow-md shadow-slate-500 text-xl rounded-full font-semibold"
+                >
+                  MySQL
+                </div>
+                <div
+                  class="py-2 px-4 bg-white shadow-md shadow-slate-500 text-xl rounded-full font-semibold"
+                >
+                  Tailwind
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="modal_porto_3"
+            class="w-full h-full p-8 scale-0 hidden flex-row"
+          >
+            <div
+              class="w-80 h-full shadwow-md shadow-slate-800 p-6 rounded-3xl"
+              id="img_container_project"
+            >
+              <img
+                class="w-full h-full object-cover object-top rounded-3xl"
+                src="PKM.png"
+                alt=""
+              />
+            </div>
+            <div class="flex flex-col w-[35vw]">
+              <p class="text-xl font-semibold mt-10">
+                PINKAN, PINTAR BELAJAR DENGAN INTERAKSI PERMAINAN SEBAGAI
+                GAME-BASED LEARNING UNTUK INTERVENSI ANAK ADHD MENGGUNAKAN
+                COMPUTER VISION
+              </p>
+              <p class="text-lg font-regular mt-6">
+                An interactive educational game developed to help children with
+                special needs ADHD in learning to read and write.
+              </p>
+              <div class="flex flex-row mt-12 space-x-6">
+                <div
+                  class="py-2 px-4 bg-white shadow-md shadow-slate-500 text-xl rounded-full font-semibold"
+                >
+                  Unity
+                </div>
+                <div
+                  class="py-2 px-4 bg-white shadow-md shadow-slate-500 text-xl rounded-full font-semibold"
+                >
+                  C#
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="modal_porto_4"
+            class="w-full h-full p-8 scale-0 hidden flex-row"
+          >
+            <div
+              class="w-80 h-full shadwow-md shadow-slate-800 p-6 rounded-3xl"
+              id="img_container_project"
+            >
+              <img
+                class="w-full h-full object-cover object-top rounded-3xl"
+                src="GEMASTIK.png"
+                alt=""
+              />
+            </div>
+            <div class="flex flex-col w-[35vw]">
+              <p class="text-3xl font-semibold mt-6">
+                INSCRAPTION, The Ethereal Path of Atma Dhira
+              </p>
+              <p
+                class="text-[20px] font-regular mt-4"
+                style="line-height: 25px"
+              >
+                A video game that highlights the diversity and uniqueness of
+                Indonesia's history and stories, inviting players to appreciate
+                and uplift local narratives. In this game, players are taught
+                the importance of maintaining a clean environment so that waste
+                does not mutate into monsters, while also teaching the values of
+                parenting that emphasize the importance of enjoying and spending
+                time together as a family.
+              </p>
+              <div class="flex flex-row mt-4 space-x-6">
+                <div
+                  class="py-2 px-4 bg-white shadow-md shadow-slate-500 text-xl rounded-full font-semibold"
+                >
+                  UNITY
+                </div>
+                <div
+                  class="py-2 px-4 bg-white shadow-md shadow-slate-500 text-xl rounded-full font-semibold"
+                >
+                  C#
+                </div>
+                <div
+                  class="py-2 px-4 bg-white shadow-md shadow-slate-500 text-xl rounded-full font-semibold"
+                >
+                  BLENDER
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="bg-[#EAECCC] w-full h-full flex flex-col justify-center items-center text-5xl"
+      >
+        <p class="text-text_color_dark font-semibold">YOU CAN FIND ME ON</p>
+        <div class="flex flex-row mt-10 space-x-12">
+          <a
+            href="https://api.whatsapp.com/send/?phone=%2B6285774126866&text&type=phone_number&app_absent=0"
+            target="_blank"
+            class="p-4 bg-white rounded-full shadow-md shadow-slate-800 hover:scale-110 transition-all duration-200"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="40"
+              height="40"
+              viewBox="0 0 90 90"
+              fill="none"
+            >
+              <rect width="90" height="90" fill="url(#pattern0_19_8)" />
+              <defs>
+                <pattern
+                  id="pattern0_19_8"
+                  patternContentUnits="objectBoundingBox"
+                  width="1"
+                  height="1"
+                >
+                  <use xlink:href="#image0_19_8" transform="scale(0.0111111)" />
+                </pattern>
+                <image
+                  id="image0_19_8"
+                  width="90"
+                  height="90"
+                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFPUlEQVR4nO2dW4hWVRTHfzVeCmuCkqbIoqwgKEjyEt1UaoqwiIxuWBZhZjBdtDCoKIQgTJCkkqyHiuqlB61GSUt6MHqImJrU7lDZxW7DTFaU2Zg7NixBhm/OZc7a+6zvm/2D/4vMnL3O//tmn73XWmcLiUQikUgkEolEIpEoTBswHVgArABeA7YBXwEDwB7RgPzbNvmZx+R3psk1Eg2YBCwG1gO/A66idgHdwN3AcYxyDgXmA5uB/xTMHU57gbeAG4FDGEUcJt+0nQHNHU6/AsuAI2hhxgJLgf4aDB4qH8O9ElNLcQGw3YDBQ/U50EkL4OfE1cA+A6YOJx/bE8B4mpQTgfcMGOkK6gPgFJqMTqVlmossvyy8kCZhLrDbgGluhPKboeswzm2B18Qukvw9LMQoV8rmoG6TnKLZ12IMP6/9Y8AcF2AauQQjnNqkDz5X4gF5ct0mj5dlkWtx9dS9zl5twAQXSX5TU9u22vKOzynL3+us2CaPAbYauHkXWdtjJ6KWGrhpV5OWxDL5cKVU5x/AQ8BsYKpMRc8aMDJPfZJTD859SkumqQ2ufRDwrgEz8+Rz2cHLTz8rPFTmZIxxhQEj8/Rj6LLYfIUg1+SM4SvYOwyYmacbQhq9uWJwu4GOAuPcb8DIPG0K2RJQNTO3tuBYRzdB7sQn0I4NYfRiheDuKDHeywbM1LyfwqxXCKyzxHjnGjAyT6+G2AnuUghsWslxPzZgZpYGtNvPpisFNrPkuBsMmJmnRvuBEbOghiXRpCapPd6iafQKpaCeLDFVvWnAxCJarmn060pB7ZBtdh5PGTCwqNZpGq2ZEp2ZM9bNBswro15No79RDKw7Z6xlBswro681jdbuAJ2VMVY78J0BA8ukTdXYE+DPrS1jvDkGDCwqnypQYzBAgA/kjLlmNBr9Z4AAB4EZGWP62twWA0ZGnTp+ChTkp1JMyMrifWLAzGgPw96AgT6fM3aHcbNVl3ehcw6LcsY/EthY4nqvABOBS4G3m2nD8njgYP8t0Ex4MPBIgeJDT4Pp6GzZ3e6zvgXXSiq5DPlGySkFYpmR0e/nC8fHZ/zuGVJQGLSaVDorgtFOnuBnFoinTV7QPPBNL7/WP7/g/UwGXlCK2XujRptS4t8pmo0kqC4HXpQ2hbKstZb41ypluRJdTFm9H1o8Z+lBuJ9FEY12UmX2BeGQVF2RdIUIqqOmd1TeCHRCwdiK06H34hgCUVfVo1/KYEWKBkW5rGJMfl0fjKtrMtqJPgSukjV1FfzpBp9VjGUeARkHfF+z2U6WdbcDR43gHiYrVIx2xjj7Q6NjySnuKDfIt2tCgS9Jl1IR4x4iMCFgNs9V0N/AO7IlnivvPp4jU81KxQ7VvgIfqhoLDRjrapI/PScabYGKAc64PpKek2icZuCm3Wh4/e1OAzfuImsVNRAz7+EM6H1ZtURl3Cibn38DTqIGZhu4eRdJPsd9MTXxqAEDXAT5ktk11EiPARNcYPnM3K11mjyxRc5McjmdR7Uf8XO9ASNc4AeffwbVTtXSjzOsHgtH+uznBwOGuAA7vlV1rJOzeiJci2krcB7GWFJhLboFeFiu8a0Bg/skCxc1QVSUMr1v/uz9Z2Qd2t6gKHoT8EUNBv8ir24MjckMvmzzV8YNfAk8LTXFouWlMfJBrAv8PuFe+ZLMa4aj5y9qcDDIS9J3doLC9dvlLJBupcMKB+Q97a6QLQEheFC6Me8CTo9QVJgijZUrpSbYK+WzgQPm/X6Zonrlr2K5fPC+Fy799yCJRCKRSCQSiUQiQUH+Bw//tmGudJchAAAAAElFTkSuQmCC"
+                />
+              </defs>
+            </svg>
+          </a>
+
+          <a
+            href="https://www.instagram.com/iknip_?igsh=MTlsNjVmNGY3NHAydQ=="
+            target="_blank"
+            class="p-4 bg-white rounded-full shadow-md shadow-slate-800 hover:scale-110 transition-all duration-200"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="40"
+              height="40"
+              viewBox="0 0 90 90"
+              fill="none"
+            >
+              <rect width="90" height="90" fill="url(#pattern0_19_9)" />
+              <defs>
+                <pattern
+                  id="pattern0_19_9"
+                  patternContentUnits="objectBoundingBox"
+                  width="1"
+                  height="1"
+                >
+                  <use xlink:href="#image0_19_9" transform="scale(0.0111111)" />
+                </pattern>
+                <image
+                  id="image0_19_9"
+                  width="90"
+                  height="90"
+                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE1ElEQVR4nO2cy49URRSHv1nA4Lp14QAmSIyiKI4zSgYlhqWJErc8tiQ+AHfiygkrCRpWDjoRloqS+HZUosQ/wGA0KGIC6hIRMIhxHKaZMpUcksmk7+3XOXWr69aX/JJJZ7rq1C/dp089bkEmk8lkMplMJpPJ1JRhYAuwH/gQOANcAa4DriLNSQw/SUw+tscl1oHjIWAa+KtCQ12X8ua/ATzIALAB+DwC01wfWgA+Ax4gQlYAh4D5CIxySvJjeU3GFgV3Ad9HYIwz0nfA2qpNHgcuRmCGM9ZlYKIqkx8G/o7ABBdIfqxjVaSLPyMYvAusP4A7Q5m8QvKWq6l+AG4JYfShCAbrKtZBa5PvT6yEcz1qXuYMZnwRwSBdJPrEyuRRmTW5hDQHvAiMiPbJa528d8Fquj4dgTFOWd7Ypezr4v2HtU0eHrAFIteh/Kd4KSNdTmSWaxq9JQJTXCCjV3bZxmZNo/dHYIoLlDpe6rKNSU2jP4rAFGegOTG7lx/Dm/pA0+gzFRlxDpgCtknV0wCWiRry2nb5UTpfUYw/ahp9KWDgTeAdYFOXMQ4BjwLHpI1Q8fo1HzW6/Tr1qhPA3QrxrgO+DhTzfyhiHey/wC70eQaYDRC/GpZBXpQNBCseCbCkq4alyfdgzzpjs9WwShfjHfR9B7AH+BI4C/wjOiuv7QZWd9DORsM0ooZFcLva9LkKONphBeH/54jM6sp4tm5Gn2jT39PAtR739ba2aftkXYxutinhXgBu9NG+f+/ekvbvNaizozT67Taf5H5MXmx22Sf7vToYvakkJ/eSLsrSSKvVOc9jqRt9TqbKrTiqPHivtwr68jH8lrLRUyUlnMX6RFO+Ka14M2WjtxW0v8fA5Jt6vqDPHSkbPVrB7vpMQZ9jKRvdKGj/F0Oj/QyyFbelbPTygvY1q42l8m0XbThno9Ez4WodjW4UtJ9Th7LRowVG5x9DZaO3Fxi92zBHP1fQ586UU8fhgvZXG01Y5ksmLNMpG32+ZAp+xMBob2YrfAy/p2y0kyMBrVip/EyMrzZuL+hrs/KYojT6WEk/TyilEL9M+lRJP8frYHRTNkuL2Kuw8O/XTopYr7TmHb3RDviqTX9be0wjPl08WdKuz83fGIwnWqOdHG4pY0TWk5sdVhfTJTnZuoxUwyK4WTnc0o5VstTpH+b/WdYursnfM1InF5Vwi5mQ41u1M9rJoZayfK3FfcYHNdVwxmZvxI6JAKdh1XDGmpXDLZoMSU62ShcmRoc6tntSzl30y3qj6sL82G7Ig+g3gHflSEDRdL0VQzLjO25QJwc7iF7VoxW/ym71Dtnja8gujdet8tpOKe00jw9U9mhFqg8LOQW9r2l0qo+/OQW9rGl0qg90OgX53xI1huVeuKoH5SLTJXkUTxXNI1QuEb2OASleI+H60ILlJYQzEQzQRSJfiZkuzlR5gauLRPMhrtR8NYKBuop1gAD4CuRUBIN1FenbkFcgr5XL9lzNdAFYQ2DGa3Zl5lW5F7sSxmryyb5QpcmL08ipxHPyGiJhWK6RTKn0uw68on0LmOaVmp8O+AxyAfhYaafHnA3yqNvlCIxzXSwQTVnfOWrFMtlempQF8tMyoFB7kK00JzGclpgmJUb1VbhMJpPJZDKZTCaTYRD4Hy2WYZFuOgQHAAAAAElFTkSuQmCC"
+                />
+              </defs>
+            </svg>
+          </a>
+
+          <a
+            href="https://x.com/iknip26?t=Qhl3XW14mEMvKJsEvmWA_A&s=09"
+            target="_blank"
+            class="p-4 bg-white rounded-full shadow-md shadow-slate-800 hover:scale-110 transition-all duration-200"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="40"
+              height="40"
+              viewBox="0 0 90 90"
+              fill="none"
+            >
+              <rect width="90" height="90" fill="url(#pattern0_19_11)" />
+              <defs>
+                <pattern
+                  id="pattern0_19_11"
+                  patternContentUnits="objectBoundingBox"
+                  width="1"
+                  height="1"
+                >
+                  <use
+                    xlink:href="#image0_19_11"
+                    transform="scale(0.0111111)"
+                  />
+                </pattern>
+                <image
+                  id="image0_19_11"
+                  width="90"
+                  height="90"
+                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEr0lEQVR4nO2cWahWVRTHf1oOjWZSEUU+RHMvFQ2UNGAUUVFBZXCjB8nyIahAMDOoKKgIJe1BwwYoo7JohgoRL2VlpEXzRFE0cstuZqThzR0L1oXj1/3mvc9e3/nWD/4P95vOXv+7zz57rz2A4ziO4ziO4ziO4ziO4zg7MQW4ELgZeBBYpVoBLADOB/ba+StOq4wDLgJeBrYDoYnkMy/pP0S+2y7ynePoM04HPmjB3Hp6D5jRxvXOBTYAc2MHci0wHntMBBYDO7oweVTyG4uAXetcaw9gDvCRfv53fS0aJ+kPL8UWewKrIxhcq9UFA/cHZgHPAH/XfG5+7IBWFn5cHi4WmAwMJjB5VFJrP2lwp7zboOZ3xG7AnzW319Xk59GEJjeT+HFs7IDOrtOWzSMfAxlNlubjzDp3WFfc1OCiizvsFnXD3sAvGWuy9DZGkdhPAZYB13cVFfBwk4s/DkyiPBZkMlm6cocB0/WOWg78oO+tidEje7aFQmwEDic9uxSCK1Mj2s8eHuO9b4ADYgT3SouF2QJcRVpmZqrN9fQbcESs4J5s8+KPAdNIw90GzB3VsLbP0VjSQSE2AdfF7mcCaw0YLBpKkeOY3UWBPgTOiliWHO1zrb6I2VwUOTJC4QY1Q9btk7l2CFy2XtT0azI+jVTQzzU5tXuH5RjJbLQksJIyP3KBt+hD9tI2TR+re1WmOq0gLSO3yx+JCv+XznzIw/NEYEKDcnxWdaOFG0oKZivwFnC/5lMGNKkvo7IXMpo8Ula6QUZl6zPXqJBRckeXxoHAjwaCDhkkXcukHFPz9/E69Ax9pvdTG71RR2RXFqbnJen9tYHgQ4mSqaykFJNK/2g7vUwnMYszL1XXPamNbpaP7hfNSW10N7mOUCGdmtrogw0EGTJrW1mzSBsMBBsy6g1KYpaBYENG3VWW0TIq/MpAwCGTzqFEZhhIU4YMGi4jPVrLvQYCDyXrETIgKcznDQQfStQFZGKiLvQOfaChkhcH/Q+Z3b6tD9rsOzHCGZrVChXUdh2smds3MlixGr4KA8hq+KOBqYXX9gXO01FU6HHtAE7AAJMLyf9tBowJkfUUhlhkwJCQqG2WRUNmOKiiif/lGGSeAWNC5H7zfhhkgqEVniGCZOWUWaS38aUBk0IVunPNmK578kKP6udY2yPKYGqiXawhsWRm/zR6jHG6j6WXFtjMpYeZoj2S7wwY2UhyjkclGK97PcT0J4DXgZ8MGCx6rskS4Z5mppFFkq/mzjOn3Fa8NNKZGt3qtRj7ti02HQOGmouVVTNZDL68cFJLyCy5kxZmOCAgaaLpFuBbA+aGwh4Z00PrVidqT9ZTaWQ5778GjA0FrdO9L6Z7B9cAV+isiUy5X6av3a6nv7xjOOm/VbuUssLKfBsrpv5qwLTQpmTh/FH0GJK/uAPYbMDA0ERv1zmCp6eYpoYPGTA01OhN4GIqxiTdNLQu8+BjE3DfGDvGKskh+sBZX9J6ju+Bh/ShXKlBRzvso4tolmht3xwhR/wx8DRwY7/U3E6QEdihenTZbOBW3TK3onC8sJwu9oAe37NQjzO7RA8diX1yjeM4juM4juM4juM4juPQU/wH51qBT42zgL8AAAAASUVORK5CYII="
+                />
+              </defs>
+            </svg>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/ikhwan-hanif-816a6025a"
+            target="_blank"
+            class="p-4 bg-white rounded-full shadow-md shadow-slate-800 hover:scale-110 transition-all duration-200"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="40"
+              height="40"
+              viewBox="0 0 90 90"
+              fill="none"
+            >
+              <rect width="90" height="90" fill="url(#pattern0_19_10)" />
+              <defs>
+                <pattern
+                  id="pattern0_19_10"
+                  patternContentUnits="objectBoundingBox"
+                  width="1"
+                  height="1"
+                >
+                  <use
+                    xlink:href="#image0_19_10"
+                    transform="scale(0.0111111)"
+                  />
+                </pattern>
+                <image
+                  id="image0_19_10"
+                  width="90"
+                  height="90"
+                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEcklEQVR4nO2d34uVRRjHP7Cbu4tmEEjaD0rMIulKk6AMD2JCF5oR/bKWSrMbRa3QS/HKzKta8F/oJlhLL5QEL/uFsalddGM/QLP8sZtEqHTckYnHiw57zvt6ZuadZ953PvC9Wc68O/PlMO88zzwzBzKZTCaTyWQymUwmU5oBYDmwCdgPfA6cAs4Ak8B10aT87ZR85iNp84Q8IzMD9wM7gMPAFcA46i/gELAduI+GMwKMAseAGx7M7aY28CXwBjBMg5gj37RzAc3tpgvAHuAuaswdwE7gcgSDO2X78IH0qVY8A5xWYHCnfgJWUwPsnHgAmFZgajfZvo0BQyTKQ8A3Cow0JfU98DCJsdrTMs1ULLssXEUivABcVWCa6VM2GHoF5bwbeE1sKpIdw2aUsl6Cg9gmGY9mv4wy7Lx2TYE5JsA0sgYlLE70xWdu4wW5KLbJQ7IsMjXXidjr7AMKTDAVyQY1UVjZZ8T3N/AxsBZ4CngR+FR59GikfyuqNtkmY37so7PngUe7PPO1BMy2mwyDVRq9s8+OjhY89zMFZhbpvYo85k6HVOfdBc9+W4GRRbooOfXg7HLo5EjBs19VYGQZ2Vx2UKxRfzh0sFXw/E8UmFhGv4feFht17OBXPdajjwP/KDCxrF4PafQxDx38WkL2W2/v+cA2YEqBebejoyFLAnxm5m4k9g3ulE2gLQhh9A4FgzPKtDWE0YcVDMwo07hvkwcli+XasTL023Zlx6rA5mGeA5YA8ySafQDYABz3ZPSk7/Kz5Z46FtrottTrlVl6bQT+9TCmZXhkUyJGb614uWokmvXG/gSMntPn2MYdx7QPj3yRgNH98pjjmA7ikZM1NtryrcOYJvDILwkZPSKlAntlY6EMexzG9DMeuZSI0YuB3zqiT1siXMQ6x7SpN64nYvTxGdpdlXxKLx5xGJMts2iU0ff02Ap7s6DtPC1GpzB1PNmj7e6CtrO0TB2/JmB0q0fbvQ7/t9KXYQrLu1YkoyeaFrC0Ihk93rQQvBXJ6A9pWFKpFcnot2hYmrQVyeileGTA0+Zp3YyeCnHu3J6tzkYTdisLyRlko/mfB1tCGH2vhzMqdZo62iVyKH1jbwnIRvOfB0cIiOseW52+0XY3PRjDjtc/1MXo8yUqY6MVoZsa6X0qYLakBk1DdamqQnSkENs0VNupEFsi9oOCQZuKdTrGrTUrEjhFZTxqWqqhojCmwABTkezZyGgMyfFdU3N9J/uKUVnkqaTXKJXN0C1ECa3Eb50xXWTLLJ5FGc/X8GKUl1DK5ppc9dMG3kE56xOfRq5pvOKnG6sSfUFOlTjdq44H5fCmSUQnNFzp47LOHlMeQU5LMBJ9newrXD+pwNRO2T49Tc0YlEtFNKRYL0oWrtLbZKpmtgzybASD/5RjFHNpEMNyFcPRwIFOWzZSNzTt6vmZWCCHMQ/KsV9XcyflWVtClgSkzoDUs22Uw5LjUoN8Ru5yuvXzIJflbxPymX1yitW2zT8PkslkMplMJpPJZDKU5CYVzg5/lPun2wAAAABJRU5ErkJggg=="
+                />
+              </defs>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const mainContainer = document.getElementById("main-container");
+
+    const btn_nav_1 = document.getElementById("btn-nav-1");
+    const btn_nav_2 = document.getElementById("btn-nav-2");
+    const btn_nav_3 = document.getElementById("btn-nav-3");
+    const btn_nav_4 = document.getElementById("btn-nav-4");
+    const btn_nav_5 = document.getElementById("btn-nav-5");
+
+    let array_btn = [btn_nav_1, btn_nav_2, btn_nav_3, btn_nav_4, btn_nav_5];
+    let currentIndex = 0;
+
+    function setSection(pageName) {
+      array_btn.forEach((btn) => {
+        btn.style.borderColor = "transparent";
+        // btn.style.borderBottomWidth = '0px';
+      });
+
+      if (pageName == "Home") {
+        currentIndex = 0;
+        btn_nav_1.style.borderColor = "#0c0c0c";
+        mainContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+      } else if (pageName == "About") {
+        currentIndex = 1;
+        btn_nav_2.style.borderColor = "#0c0c0c";
+        mainContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+      } else if (pageName == "Project") {
+        currentIndex = 2;
+        btn_nav_3.style.borderColor = "#0c0c0c";
+        mainContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+      } else if (pageName == "Skils") {
+        currentIndex = 3;
+        btn_nav_4.style.borderColor = "#0c0c0c";
+        mainContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+      } else if (pageName == "Contact") {
+        currentIndex = 4;
+        btn_nav_5.style.borderColor = "#0c0c0c";
+        // btn_nav_5.style.borderBottomWidth = '2px';
+        mainContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+      }
+    }
+
+    const aboutMeElement = document.getElementById("about-me");
+    const aboutMeText =
+      "Hello!, i am Hanif, i am a front-end and game developer with 2 years of experience. I like to build some nice webdesign, and also an enjoyable and fun games.";
+
+    aboutMeElement.innerHTML = "";
+
+    const words = aboutMeText.split(" ");
+
+    words.forEach((word, wordIndex) => {
+      const wordElement = document.createElement("span");
+      wordElement.textContent = word;
+      wordElement.style.setProperty("--word-index", wordIndex);
+      wordElement.classList.add("word-animation");
+      aboutMeElement.appendChild(wordElement);
+
+      if (wordIndex < words.length - 1) {
+        const spaceElement = document.createElement("span");
+        spaceElement.textContent = " ";
+        aboutMeElement.appendChild(spaceElement);
+      }
+    });
+
+    // ANIMASI TANGAN
+    const sayHiButton = document.getElementById("sayHiButton");
+    const hand = document.getElementById("hand");
+
+    sayHiButton.addEventListener("mouseover", function () {
+      sayHiButton.classList.add(
+        "hover:scale-110",
+        "transition-transform",
+        "duration-300"
+      );
+      hand.classList.add("animate-wave");
+    });
+
+    sayHiButton.addEventListener("mouseout", function () {
+      sayHiButton.classList.remove(
+        "hover:scale-110",
+        "transition-transform",
+        "duration-300"
+      );
+      hand.classList.remove("animate-wave");
+    });
+
+    // DOWNLOAD CV
+    document.addEventListener("DOMContentLoaded", function () {
+      const downloadButton = document.getElementById("downloadButton");
+
+      downloadButton.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        const downloadLink = document.createElement("a");
+        downloadLink.href = "";
+        downloadLink.download = "your-cv.pdf";
+
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+
+        document.body.removeChild(downloadLink);
+      });
+    });
+
+    const container_project = document.getElementById("container_project");
+    let index2 = 0;
+    let remNow = 10;
+
+    function nextProject() {
+      index2++;
+      if (index2 > 2) {
+        index2 = 0;
+      }
+      container_project.style.transform = `translateX(${
+        remNow - index2 * 16
+      }rem)`;
+    }
+
+    function prevProject() {
+      index2--;
+      if (index2 < 0) {
+        index2 = 2;
+      }
+      container_project.style.transform = `translateX(${
+        remNow - index2 * 16
+      }rem)`;
+    }
+
+    const detail_container = document.getElementById("detail_container");
+    const modal_1 = document.getElementById("modal_porto_1");
+    const modal_2 = document.getElementById("modal_porto_2");
+    const modal_3 = document.getElementById("modal_porto_3");
+    const modal_4 = document.getElementById("modal_porto_4");
+    const listModal = [modal_1, modal_2, modal_3, modal_4];
+
+    const nextButton = document.getElementById("btn_next");
+    const prevButton = document.getElementById("btn_prev");
+
+    function openModal(key) {
+      nextButton.disabled = true;
+      prevButton.disabled = true;
+      detail_container.classList.remove("scale-0");
+      detail_container.classList.add("scale-100");
+      listModal.forEach((modal) => {
+        modal.classList.remove("flex");
+        modal.classList.add("hidden");
+      });
+      listModal[key].classList.remove("hidden");
+      listModal[key].classList.add("flex");
+      listModal[key].classList.remove("scale-0");
+      listModal[key].classList.add("scale-100");
+      listModal[key].classList.add("transition-all");
+      listModal[key].classList.add("duration-300");
+    }
+
+    function closeModal() {
+      nextButton.disabled = false;
+      prevButton.disabled = false;
+      detail_container.classList.remove("scale-100");
+      detail_container.classList.add("scale-0");
+    }
+  </script>
+</html>
